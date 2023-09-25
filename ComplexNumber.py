@@ -1,16 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def ComplexNumber():
-    x = float(input("Input Real Part "))
-    y = float(input("Input Complex Part "))
-    #asks for the real and complex part of a discrete complex number
-        #x is real
-        #y is complex
+def ComplexNumber(RealPart, ComplexPart):
+    plt.xlim(-((np.absolute(RealPart))+5), np.absolute(RealPart)+5)
+    plt.ylim(-((np.absolute(ComplexPart))+5), np.absolute(ComplexPart)+5)
+    #limits x and y view to +/- 5 from point
 
-    plt.xlim(-((np.absolute(x))+5), np.absolute(x)+5)
-    plt.ylim(-((np.absolute(y))+5), np.absolute(y)+5)
-    #limits x and y view to +/- from point
-
-    plt.plot(x, y, marker="o", markersize=20)
+    plt.plot(RealPart, ComplexPart, marker="o", markersize=20)
     #plots point on grid
