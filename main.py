@@ -20,8 +20,8 @@ def PlotAbslouteValue():
     Radius = float(input("absloute value? "))
     Absi.ComplexAbsloute(CenterX, CenterY, Radius)
 
-
-
+plt.xlabel('Real', fontsize=20)
+plt.ylabel('Imaginary', fontsize=20)
 plt.grid()
 plt.show()
 
