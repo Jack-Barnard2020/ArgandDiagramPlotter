@@ -6,6 +6,7 @@ Menu = [1,2,3]
 MenuOption = int()
 AnotherPlot = str()
 
+
 def PlotComplexNumber():
     Real = float(input("Input the real part of a complex number? "))
     Complex = float(input("Input the complex part of a complex number? "))
