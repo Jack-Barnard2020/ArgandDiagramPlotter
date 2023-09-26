@@ -38,3 +38,4 @@ def Plot():
     plt.grid()
     plt.show()
 
+Plot()
