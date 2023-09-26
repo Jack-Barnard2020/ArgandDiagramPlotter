@@ -2,14 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def ComplexAbsloute(XCordinate, YCordinate, Radius):
-    axes = plt.subplots()
+    figure, axes = plt.subplots()
     #Sets axis to a subplot so that circle can be overlayed
     Drawing_uncolored_circle = plt.Circle( (XCordinate, YCordinate ),
                                         Radius ,
                                         fill = False )
     #uses infomation from main.py to plot an unfilled circle
     
-    axes.set_aspect(1)
+    axes.set_aspect( 1 )
     #sets axis to be in same divsions so shape isnt distorted
     axes.add_artist( Drawing_uncolored_circle )
     #adds circle to plot
