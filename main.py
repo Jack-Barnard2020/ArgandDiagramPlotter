@@ -2,6 +2,7 @@ import Plotter as plot
 
 
 running = True
+AvalibleRunningOptions = ["y", "n"]
 AvailbleMenuOptions = [1,2,3]
 MenuOption = int()
 AnotherPlot = str()
@@ -54,14 +55,23 @@ def menu():
         print("ERROR \nYou have not inputted a number, please try again")
         menu()
 
+def run():
+    running = True
+    while running == True:
+        menu()
+        AnotherPlot = input("Would you like to plot another propery before we draw the graph? y/n? ")
+        try:
+            AnotherPlot = AnotherPlot.lower()
+            if AnotherPlot in AvalibleRunningOptions:
+                if AnotherPlot == "y":
+                    running = True
+                else:
+                    running = False
+            else:
+                print("ERROR \n not a valid input, please try agin")
+        except ValueError:
+            print("ERROR \n Not a letter, please try again")
+    plot.Plot()
 
-while running == True:
-    menu()
-    AnotherPlot = input("Would you like to plot another propery before we draw the graph? y/n? ").lower()
-    if AnotherPlot == "y":
-        running = True
-    else:
-        running = False
-plot.Plot()
 
-    
+run()
