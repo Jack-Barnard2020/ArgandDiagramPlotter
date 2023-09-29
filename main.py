@@ -29,4 +29,3 @@ def PlotAbslouteValue():
     #radius is equal to the absloute value of a complex number, when plotted on an argand diagram
 
     plot.ComplexAbsloute(CenterX, CenterY, Radius)
-
