@@ -2,7 +2,7 @@ import Plotter as plot
 
 
 running = True
-Menu = [1,2,3]
+AvailbleMenuOptions = [1,2,3]
 MenuOption = int()
 AnotherPlot = str()
 
@@ -29,3 +29,39 @@ def PlotAbslouteValue():
     #radius is equal to the absloute value of a complex number, when plotted on an argand diagram
 
     plot.ComplexAbsloute(CenterX, CenterY, Radius)
+
+def menu():
+    MenuOption = input("What would you like to do? \n   1. Draw an absloute value \n   2. Draw an argument \n   3. Plot a complex number ")
+    try:
+        MenuOption = int(MenuOption)
+        if MenuOption in AvailbleMenuOptions:
+                if MenuOption == 1:
+                    PlotAbslouteValue()
+                elif MenuOption == 2:
+                    PlotArgument()
+                elif MenuOption == 3:
+                    PlotComplexNumber()
+                else:
+                    print('ERROR \nsomething else went wrong, please try again')
+                    menu()
+        else:
+            print("ERROR \nnumber not in range, please try again")
+            menu()
+    except TypeError:
+        print("ERROR \nYou have not inputted a number, please try again")
+        menu()
+    except ValueError:
+        print("ERROR \nYou have not inputted a number, please try again")
+        menu()
+
+
+while running == True:
+    menu()
+    AnotherPlot = input("Would you like to plot another propery before we draw the graph? y/n? ").lower()
+    if AnotherPlot == "y":
+        running = True
+    else:
+        running = False
+plot.Plot()
+
+    
