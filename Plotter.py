@@ -1,32 +1,47 @@
-import AbslouteOfAComplex as Absi
-import ArgumentOfAComplex as Argi
-import ComplexNumber as i
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 
-def PlotComplexNumber():
-    Real = float(input("Input the real part of a complex number? "))
-    Complex = float(input("Input the complex part of a complex number? "))
-    i.ComplexNumber(Real, Complex)
+def ComplexNumber(RealPart, ComplexPart):
+    plt.xlim(-((np.absolute(RealPart))+5), np.absolute(RealPart)+5)
+    plt.ylim(-((np.absolute(ComplexPart))+5), np.absolute(ComplexPart)+5)
+    #limits x and y view to +/- 5 from point
 
-def PlotArgument():
-    ArgAngle = int(input("Input numerator of fractional value of pi? "))/int(input("Input denominator of fractional value of pi? "))
-    #asks for a fractional value of pi with out p, pi is multiplied onto value in ArgumentOFACOMplex
+    plt.plot(RealPart, ComplexPart, marker="o", markersize=20)
+    #plots point on grid
+
+def ComplexArg(ArgAngle, ArgX, ArgY):
+    axes = plt.subplot()
+
+    gradient = np.tan(ArgAngle*np.pi)
+    #finds the gradient of the argument
+        #given that the tangent to the angle is m in the form y - y1 = m(x-x1)
+
+    x = np.linspace(ArgX, 50, 1000)
+    #range of x values to be plotted
+    y = gradient*(x-ArgX)+ArgY
+    #the function of the graph given in the formm y - y1 = m(x-x1), rearranged to give y as a variable 
+
+    axes.set_aspect( 1 )
+    #set axis to be square so that the line is not distorted
+    plt.plot(x, y)
+
+def ComplexAbsloute(XCordinate, YCordinate, Radius):
+    figure, axes = plt.subplots()
+    #Sets axis to a subplot so that circle can be overlayed
+    Drawing_uncolored_circle = plt.Circle( (XCordinate, YCordinate ),
+                                        Radius ,
+                                        fill = False )
+    #uses infomation from main.py to plot an unfilled circle
     
-    ArgX = float(input("Input the real part of a complex number? "))
-    ArgY = float(input("Input the complex part of a complex number? "))
-    Argi.ComplexArg(ArgAngle, ArgX, ArgY)
-
-def PlotAbslouteValue():
-    CenterX = -float(input("real part? "))
-    CenterY = -float(input("complex part? "))
-    #opposite sign of the part will be the center
-
-    Radius = float(input("absloute value? "))
-    #radius is equal to the absloute value of a complex number, when plotted on an argand diagram
-
-    Absi.ComplexAbsloute(CenterX, CenterY, Radius)
+    axes.set_aspect( 1 )
+    #sets axis to be in same divsions so shape isnt distorted
+    axes.add_artist( Drawing_uncolored_circle )
+    #adds circle to plot
+    plt.xlim(-((np.absolute(XCordinate))+Radius+10), np.absolute(XCordinate)+Radius+10)
+    plt.ylim(-((np.absolute(YCordinate))+Radius+10), np.absolute(YCordinate)+Radius+10)
+    #limits x and y view to a sensible size given radius 
 
 def Plot():
     plt.xlabel('Real', fontsize=20)
