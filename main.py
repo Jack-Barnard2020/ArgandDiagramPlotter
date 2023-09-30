@@ -71,7 +71,8 @@ def run():
                 print("ERROR \n not a valid input, please try agin")
         except ValueError:
             print("ERROR \n Not a letter, please try again")
-    plot.Plot()
+
 
 
 run()
+plot.Plot()
